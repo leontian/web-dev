@@ -3,5 +3,10 @@ input.form-control {
 }
 
 body {
-    padding-top: 36px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+p.navbar-text.pull-right {
+    margin-right: 15px;
 }
