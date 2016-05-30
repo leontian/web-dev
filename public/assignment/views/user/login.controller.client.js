@@ -8,6 +8,8 @@
     
     function LoginController($scope) {
         $scope
-            .hello = "Hello from login controller";
+            .login = function() {
+            console.log($scope.username);
+        }
     }
 })();
