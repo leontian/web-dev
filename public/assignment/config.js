@@ -8,8 +8,10 @@
     
     function Config($routeProvider) {
         $routeProvider
-            .when("/profile", {
-                templateUrl: "views/user/profile.view.client.html"
+            .when("/profile/:id", {
+                templateUrl: "views/user/profile.view.client.html",
+                controller: "ProfileController",
+                controllerAs: "model"
             })
             .when("/register", {
                 templateUrl: "views/user/register.view.client.html"
