@@ -15,9 +15,12 @@
                 templateUrl: "views/user/register.view.client.html"
             })
             .when("/login", {
-                templateUrl: "views/user/login.view.client.html"
-            });
-        
+                templateUrl: "views/user/login.view.client.html",
+                controller: "LoginController"
+            })
+            .otherwise({
+                redirectTo: "/login"
+            })
     }
     
 })();
