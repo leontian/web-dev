@@ -7,7 +7,7 @@
     <meta name="viewport" content="initial-scale=1.25, user-scalable=no">
     <title>Title</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="css/style.css" rel="stylesheet"/>
+    <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -15,13 +15,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-brand">
-                <a href="website-list.html">
+                <a href="widget-list.html">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 New Website
             </p>
             <p class="navbar-text pull-right">
-                <a href="website-list.html" class="navbar-link">
+                <a href="widget-list.html" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -34,28 +34,50 @@
 <div class="container">
     <form>
         <div class="form-group">
-            <label for="website-name">Name</label>
+            <label for="widget-name">Name</label>
             <input type="text"
                    class="form-control"
-                   id="website-name"
+                   id="widget-name"
                    placeholder="Blogger">
         </div>
         <div class="form-group">
-            <label for="website-description">Description</label>
-            <textarea rows=4
-                      class="form-control"
-                      id="website-description"
-                      placeholder="Test"></textarea>
+            <label for="widget-text">Text</label>
+            <input type="text"
+                   class="form-control"
+                   id="widget-text"
+                   value="US Senate" >
+        </div>
+        <div class="form-group">
+            <label for="widget-url">URL</label>
+            <input type="text"
+                   class="form-control"
+                   id="widget-url"
+                   value="http://www.youtube.com" >
+        </div>
+        <div class="form-group">
+            <label for="widget-width">Width</label>
+            <input type="text"
+                   class="form-control"
+                   id="widget-width"
+                   value="100%" >
+        </div>
+        <div class="form-group">
+            <label for="widget-upload">Upload</label>
+            <input type="file"
+                   class="form-control"
+                   id="widget-upload">
         </div>
     </form>
+    <a class="btn btn-primary btn-block"
+       href="widget-list.html">Upload Image</a>
     <a class="btn btn-danger btn-block"
-       href="website-list.html">Delete</a>
+       href="widget-list.html">Delete</a>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
             <div class="row navbar-text">
                 <div class="col-xs-2 text-center pull-right">
-                    <a href="profile.html">
+                    <a href="../user/profile.html">
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                 </div>

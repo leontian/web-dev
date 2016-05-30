@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="WebAppMaker">
 <head>
     <meta charset="UTF-8">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -8,12 +8,14 @@
     <title>Assignment Home Page</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="css/style.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="config.js"></script>
 </head>
 <body>
 <div class="container">
-    <h1>Assignment Home Page</h1>
-    <a class="btn btn-success btn-block"
-       href="login.html">Login</a>
+    <div ng-view></div>
 </div>
 </body>
 </html>
