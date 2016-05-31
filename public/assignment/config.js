@@ -8,12 +8,12 @@
     
     function Config($routeProvider) {
         $routeProvider
-            .when("/user/:id/website", {
+            .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
                 controller: "WebsiteListController",
                 controllerAs: "model"
             })
-            .when("/user/:id", {
+            .when("/user/:uid", {
                 templateUrl: "views/user/profile.view.client.html",
                 controller: "ProfileController",
                 controllerAs: "model"

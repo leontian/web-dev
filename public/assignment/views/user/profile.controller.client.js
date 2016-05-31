@@ -15,7 +15,7 @@
         
 
 
-        var id = $routeParams['id'];
+        var id = $routeParams['uid'];
         
         //convention
         function init() {
