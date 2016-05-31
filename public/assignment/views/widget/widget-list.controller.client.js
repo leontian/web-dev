@@ -3,9 +3,29 @@
         .module("WebAppMaker")
         .controller("WidgetListController", WidgetListController);
     
-    function WidgetListController($routeParams, $location, WidgetService) {
+    function WidgetListController($sce, $routeParams, $location, WidgetService) {
         var vm = this;
         vm.pid = $routeParams.pid;
-        vm.widgets = WidgetService.findWidgetsByPageId(vm.pid);
+        vm.getSafeHtml = getSafeHtml;
+        vm.getSafeUrl = getSafeUrl;
+
+        function init() {
+            var widgets = WidgetService.findWidgetsByPageId(vm.pid);
+            if (widgets.length) {
+                vm.widgets = widgets;
+            }
+        }
+        init();
+
+        function getSafeHtml(widget) {
+            return $sce.trustAsHtml(widget.text);
+        }
+        
+        function getSafeUrl(widget) {
+            var urlParts = widget.url.split('/');
+            var id = urlParts[urlParts.length-1];
+            var url = "http://www.youtube.com/embed/" + id;
+            return $sce.trustAsResourceUrl(url);
+        }
     }
 })();

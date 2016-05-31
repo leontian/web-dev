@@ -8,7 +8,7 @@
                 Widgets
             </p>
             <p class="navbar-text pull-right">
-                <a href="widget-chooser.html" class="navbar-link">
+                <a href="widget-chooser.view.client.html" class="navbar-link">
           <span class="glyphicon glyphicon-plus">
           </span>
                 </a>
@@ -19,7 +19,6 @@
 
 
 <div class="container">
-    {{model.widgets}}
     <div ng-repeat="widget in model.widgets">
         <div class="jga-widget">
             <div class="jga-widget-tool">
@@ -30,7 +29,7 @@
             </div>
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HTML">
-                    {{widget.text}}
+                    <div ng-bind-html="model.getSafeHtml(widget)"></div>
                 </div>
                 <div ng-switch-when="HEADER" ng-switch="widget.size">
                     <h1 ng-switch-when="1">{{widget.text}}</h1>
@@ -44,7 +43,7 @@
                     <img ng-src="{{widget.url}}" width="{{widget.width}}">
                 </div>
                 <div ng-switch-when="YOUTUBE">
-                    <iframe width="{{widget.width}}" height="" src="" frameborder="0" allowfullscreen></iframe>
+                    <iframe width="{{widget.width}}" ng-src="{{model.getSafeUrl(widget)}}" frameborder="0" allowfullscreen></iframe>
                 </div>
             </div>
         </div>

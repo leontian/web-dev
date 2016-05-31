@@ -26,9 +26,14 @@
         return api;
         
         function findWidgetsByPageId(pid) {
-            return widgets;
+            var result = [];
+            for (var i in widgets) {
+                if (widgets[i].pageId === pid) {
+                    result.push(widgets[i]);
+                }
+            }
+            return result;
         }
-        
     }
     
 })();
