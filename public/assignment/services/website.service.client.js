@@ -33,22 +33,50 @@
                 }
             }
             return resultSet;
-        };
+        }
 
-        function findWebsiteById() {
-
-        };
+        function findWebsiteById(wid) {
+            for (var i in websites) {
+                if (websites[i]._id === wid) {
+                    return websites[i];
+                }
+            }
+            return null;
+        }
         
-        function createWebsite() {
+        function createWebsite(developerId, name, description) {
+            if (name) {
+                var newWebsite = {
+                    _id: (new Date()).getTime() + "",
+                    name: name,
+                    description: description,
+                    developerId: developerId
+                };
+                websites.push(newWebsite);
+                return newWebsite;
+            }
+                return null;
+        }
+        
+        function updateWebsite(updatedWebsite) {
+            for (var i in websites) {
+                if (websites[i]._id === updatedWebsite._id) {
+                    websites[i] = updatedWebsite;
+                    return true;
+                }
+            }
+            return false;
             
         }
         
-        function updateWebsite() {
-            
-        }
-        
-        function deleteWebsite() {
-
+        function deleteWebsite(wid) {
+            for (var i in websites) {
+                if (websites[i]._id === wid) {
+                    websites.splice(i, 1) ;
+                    return true;
+                }
+            }
+            return false;
         }
         
         return api;

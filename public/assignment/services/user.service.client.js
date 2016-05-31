@@ -55,8 +55,8 @@
                     return null;
                 }
             }
-            
-            var newId = users[users.length-1]._id + 1;
+
+            var newId = (new Date()).getTime() + "";
             
             users.push({
                 _id: newId,
@@ -70,12 +70,11 @@
         function deleteUser(uid) {
             for (var i in users) {
                 if (users[i]._id === uid) {
-                    delete users[i];
+                    users.splice(i, 1) ;
                     return true;
                 }
             }
             return false;
-            
         }
         
         return api;

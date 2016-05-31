@@ -31,10 +31,14 @@
             // will check if the param after website is "new" first
             // order matters
             .when("/user/:uid/website/new", {
-                templateUrl: "views/website/website-new.view.client.html"
+                templateUrl: "views/website/website-new.view.client.html",
+                controller: "NewWebsiteController",
+                controllerAs: "model"
             })
             .when("/user/:uid/website/:wid", {
-                templateUrl: "views/website/website-edit.view.client.html"
+                templateUrl: "views/website/website-edit.view.client.html",
+                controller: "WebsiteEditController",
+                controllerAs: "model"
             })
             .when("/user/:uid/website", {
                 templateUrl: "views/website/website-list.view.client.html",
