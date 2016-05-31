@@ -49,11 +49,32 @@
             return false;
         }
         
-        function createUser() {
+        function createUser(username, password) {
+            for (var i in users) {
+                if (users[i].username === username) {
+                    return null;
+                }
+            }
             
+            var newId = users[users.length-1]._id + 1;
+            
+            users.push({
+                _id: newId,
+                username: username,
+                password: password
+            });
+            
+            return newId;
         }
         
-        function deleteUser() {
+        function deleteUser(uid) {
+            for (var i in users) {
+                if (users[i]._id === uid) {
+                    delete users[i];
+                    return true;
+                }
+            }
+            return false;
             
         }
         
