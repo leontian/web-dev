@@ -18,18 +18,38 @@
     
     function WebsiteService() {
         var api = {
-            findWebsiteByUserId : findWebsiteByUserId
+            findWebsitesByUserId: findWebsitesByUserId,
+            findWebsiteById: findWebsiteById,
+            createWebsite: createWebsite,
+            updateWebsite: updateWebsite,
+            deleteWebsite: deleteWebsite
         };
         
-        function findWebsiteByUserId(uid) {
-            var list = [];
+        function findWebsitesByUserId(uid) {
+            var resultSet = [];
             for (var i in websites) {
                 if (websites[i].developerId === uid) {
-                    list.push(websites[i]);
+                    resultSet.push(websites[i]);
                 }
             }
-            return list;
+            return resultSet;
         };
+
+        function findWebsiteById() {
+
+        };
+        
+        function createWebsite() {
+            
+        }
+        
+        function updateWebsite() {
+            
+        }
+        
+        function deleteWebsite() {
+
+        }
         
         return api;
     }
