@@ -10,23 +10,25 @@
         $routeProvider
             //widgets
             .when("/user/:uid/website/:wid/page/:pid/widget/new", {
-                templateUrl: "views/website/widget-new.view.client.html"
+                templateUrl: "views/widget/widget-new.view.client.html"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget/:wgid", {
-                templateUrl: "views/website/widget-edit.view.client.html"
+                templateUrl: "views/widget/widget-edit.view.client.html"
             })
             .when("/user/:uid/website/:wid/page/:pid/widget", {
-                templateUrl: "views/website/widget-list.view.client.html"
+                templateUrl: "views/widget/widget-list.view.client.html",
+                controller: "WidgetListController",
+                controllerAs: "model"
             })
             //pages
             .when("/user/:uid/website/:wid/page/new", {
-                templateUrl: "views/website/page-new.view.client.html"
+                templateUrl: "views/page/page-new.view.client.html"
             })
             .when("/user/:uid/website/:wid/page/:pid", {
-                templateUrl: "views/website/page-edit.view.client.html"
+                templateUrl: "views/page/page-edit.view.client.html"
             })
             .when("/user/:uid/website/:wid/page", {
-                templateUrl: "views/website/page-list.view.client.html"
+                templateUrl: "views/page/page-list.view.client.html"
             })
             // will check if the param after website is "new" first
             // order matters
