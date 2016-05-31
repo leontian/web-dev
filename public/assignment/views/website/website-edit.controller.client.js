@@ -3,19 +3,13 @@
         .module("WebAppMaker")
         .controller("WebsiteEditController", WebsiteEditController);
 
-    function WebsiteEditController($routeParams, WebsiteService) {
+    function WebsiteEditController($location, $routeParams, WebsiteService) {
         var vm = this;
         vm.deleteWebsite = deleteWebsite;
         
-        function init() {
-            var uid = $routeParams['uid'];
-            var wid = $routeParams['wid'];
-            vm.website = WebsiteService.findWebsiteById(wid);
-            vm.uid = uid;
-            vm.wid = wid;
-        }
-        
-        init();
+        vm.uid = $routeParams['uid'];
+        vm.wid = $routeParams['wid'];
+        vm.website = WebsiteService.findWebsiteById(vm.wid);
         
         function deleteWebsite(wid) {
             var result = WebsiteService.deleteWebsite(wid);

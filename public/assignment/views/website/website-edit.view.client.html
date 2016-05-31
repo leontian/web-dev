@@ -22,14 +22,14 @@
     <form>
         <div class="form-group">
             <label for="website-name">Name</label>
-            <input type="text"
+            <input ng-model="model.website.name" type="text"
                    class="form-control"
                    id="website-name"
                    placeholder="Blogger">
         </div>
         <div class="form-group">
             <label for="website-description">Description</label>
-            <textarea rows=4
+            <textarea ng-model="model.website.description" rows=4
                       class="form-control"
                       id="website-description"
                       placeholder="Test"></textarea>
