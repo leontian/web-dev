@@ -14,7 +14,7 @@
             if (newWebsite) {
                 $location.url("/user/" + vm.uid + "/website");
             } else {
-                vm.error = "Unable to create website";
+                vm.error = "Unable to create website.";
             }
         }
     }

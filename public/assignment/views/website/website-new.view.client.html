@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-brand">
-                <a href="website-list.view.client.html">
+                <a href="#/user/{{model.uid}}/website">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 New Website
@@ -19,6 +19,9 @@
 
 
 <div class="container">
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <form>
         <div class="form-group">
             <label for="website-name">Name</label>
