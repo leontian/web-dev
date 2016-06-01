@@ -1,0 +1,46 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <p class="navbar-brand">
+                <a href="../assignment/views/website/website-list.view.client.html">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                Pages
+            </p>
+            <p class="navbar-text pull-right">
+                <a href="page-new.view.client.html" class="navbar-link">
+          <span class="glyphicon glyphicon-plus">
+          </span>
+                </a>
+            </p>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <ul class="list-group">
+        <li ng-repeat="page in model.pages" class="list-group-item">
+            <a href="../assignment/views/widget/widget-list.html">
+                {{page.name}}
+            </a>
+            <a href="page-edit.view.client.html">
+                <span class="glyphicon glyphicon-cog pull-right"></span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<div class="container">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <div class="row navbar-text">
+                <div class="col-xs-2 text-center pull-right">
+                    <a href="../assignment/views/user/profile.html">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
