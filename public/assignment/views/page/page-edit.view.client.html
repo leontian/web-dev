@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-brand">
-                <a href="page-list.view.client.html">
+                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 Edit Page
@@ -19,6 +19,9 @@
 
 
 <div class="container">
+    <div ng-show="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <form>
         <div class="form-group">
             <label for="page-name">Name</label>

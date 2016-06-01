@@ -38,7 +38,7 @@
         }
 
         function createPage(wid, page){
-            if (page) {
+            if (page.name) {
                 page.websiteId = wid;
                 pages.push(page);
                 return page;
