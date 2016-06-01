@@ -54,12 +54,11 @@
                 }
             }
             return false;
-
         }
 
-        function deletePage(wid) {
+        function deletePage(pid) {
             for (var i in pages) {
-                if (pages[i]._id === wid) {
+                if (pages[i]._id === pid) {
                     pages.splice(i, 1) ;
                     return true;
                 }
