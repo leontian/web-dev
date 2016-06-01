@@ -20,7 +20,8 @@
 
     function WidgetService() {
         var api = {
-            findWidgetsByPageId: findWidgetsByPageId
+            findWidgetsByPageId: findWidgetsByPageId,
+            findWidgetById: findWidgetById
         };
         
         return api;
@@ -33,6 +34,16 @@
                 }
             }
             return result;
+        }
+        
+        function findWidgetById(wid) {
+            for (var i in widgets) {
+                if (widgets[i]._id === wid) {
+                    return widgets[i];
+                }
+            }
+            return null;
+            
         }
     }
     
