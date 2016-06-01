@@ -21,7 +21,10 @@
     function WidgetService() {
         var api = {
             findWidgetsByPageId: findWidgetsByPageId,
-            findWidgetById: findWidgetById
+            findWidgetById: findWidgetById,
+            createWidget: createWidget,
+            updateWidget: updateWidget,
+            deleteWidget: deleteWidget
         };
         
         return api;
@@ -43,8 +46,31 @@
                 }
             }
             return null;
-            
+        }
+        
+        function createWidget(pid, widget) {
+            widget.pageId = pid;
+            widgets.push(widget);
+        }
+        
+        function updateWidget(wgid, widget) {
+            for (var i in widgets) {
+                if (widgets[i]._id === wgid) {
+                    widgets[i] = widget;
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        function deleteWidget(wgid) {
+            for (var i in widgets) {
+                if (widgets[i]._id === wgid) {
+                    widgets.splice(i, 1);
+                    return true;
+                }
+            }
+            return false;
         }
     }
-    
 })();

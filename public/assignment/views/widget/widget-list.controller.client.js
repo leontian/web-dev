@@ -15,6 +15,7 @@
             var widgets = WidgetService.findWidgetsByPageId(vm.pid);
             if (widgets.length) {
                 vm.widgets = widgets;
+                console.log(widgets);
             }
         }
         init();
