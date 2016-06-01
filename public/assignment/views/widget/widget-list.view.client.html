@@ -30,6 +30,7 @@
             <div ng-switch="widget.widgetType">
                 <div ng-switch-when="HTML">
                     <div ng-bind-html="model.getSafeHtml(widget)"></div>
+                    <!--<ng-include src="'views/widget/widget-heading.view.client.html'"/>-->
                 </div>
                 <div ng-switch-when="HEADER" ng-switch="widget.size">
                     <h1 ng-switch-when="1">{{widget.text}}</h1>
