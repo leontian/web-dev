@@ -21,8 +21,8 @@ module.exports = function (app) {
                 res.send(users[i]);
                 return;
             }
-            res.send({});
         }
+        res.send({});
     }
     
     function getUsers(req, res) {

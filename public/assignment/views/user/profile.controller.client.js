@@ -19,7 +19,12 @@
         
         //convention
         function init() {
-            vm.user = UserService.findUserById(id);
+            UserService
+                .findUserById(id)
+                .then(function (response) {
+                    //console.log(response);
+                    vm.user = response.data;
+                });
         }
         
         init();

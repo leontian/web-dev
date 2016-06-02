@@ -12,7 +12,7 @@
         vm.login = function(username, password) {
             UserService
                 .findUserByUsernameAndPassword(username, password)
-                .promise.then(function (res) {
+                .then(function (res) {
                     var user = res.data;
 
                     if (user) {
