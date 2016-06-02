@@ -12,14 +12,17 @@
         var vm = this;
         vm.register = register;
         
-        function register(username, password, verifypassword) {
-            if (password === verifypassword) {
-                var newId= UserService.createUser(username, password);
-                if (!newId) {
-                    vm.error = "Username taken.";
-                } else {
-                    $location.url("/user/" + newId);
-                }
+        function register(username, password, password2) {
+            if (password === password2) {
+                UserService
+                    .createUser(username, password)
+                    .then(function (response) {
+                        var user = response.data;
+                        if (user) {
+                            $location.url("/user/" + user._id)
+                        }
+                        
+                    })
                 
             } else {
                 vm.error = "Passwords don't match."

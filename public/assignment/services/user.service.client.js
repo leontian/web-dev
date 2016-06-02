@@ -34,21 +34,12 @@
         }
         
         function createUser(username, password) {
-            for (var i in users) {
-                if (users[i].username === username) {
-                    return null;
-                }
-            }
-
-            var newId = (new Date()).getTime() + "";
-            
-            users.push({
-                _id: newId,
+            var user = {
                 username: username,
                 password: password
-            });
+            };
             
-            return newId;
+            return $http.post("/api/user", user);
         }
         
         function deleteUser(uid) {

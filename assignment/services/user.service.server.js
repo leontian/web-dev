@@ -12,7 +12,11 @@ module.exports = function (app) {
         ];
     
     app.get("/api/user", getUsers);
+    app.post("/api/user", createUser);
     app.get("/api/user/:userId", findUserById);
+    app.put("/api/user/:userId", updateUser);
+    app.delete("/api/user/:userId", deleteUser);
+    
     
     function findUserById(req, res) {
         var id = req.params.userId;
@@ -56,5 +60,20 @@ module.exports = function (app) {
             }
         }
         res.send({});
+    }
+
+    function createUser(req, res) {
+        var user = req.body;
+        user._id = (new Date()).getTime() + "";
+        users.push(user);
+        res.send(user);
+    }
+    
+    function updateUser(req, res) {
+        
+    }
+    
+    function deleteUser(req, res) {
+        
     }
 };
