@@ -9,7 +9,7 @@
     
 
     
-    function WebsiteService() {
+    function WebsiteService($http) {
         var api = {
             findWebsitesByUserId: findWebsitesByUserId,
             findWebsiteById: findWebsiteById,
@@ -18,58 +18,36 @@
             deleteWebsite: deleteWebsite
         };
         
-        function findWebsitesByUserId(uid) {
-            var resultSet = [];
-            for (var i in websites) {
-                if (websites[i].developerId === uid) {
-                    resultSet.push(websites[i]);
-                }
-            }
-            return resultSet;
+        function findWebsitesByUserId(userId) {
+            var url = "/api/user/" + userId + "/website";
+            return $http.get(url);
         }
 
-        function findWebsiteById(wid) {
-            for (var i in websites) {
-                if (websites[i]._id === wid) {
-                    return websites[i];
-                }
-            }
-            return null;
+        function findWebsiteById(websiteId) {
+            var url = "/api/website/" + websiteId;
+            return $http.get(url);
         }
         
         function createWebsite(developerId, name, description) {
-            if (name) {
-                var newWebsite = {
-                    _id: (new Date()).getTime() + "",
-                    name: name,
-                    description: description,
-                    developerId: developerId
-                };
-                websites.push(newWebsite);
-                return newWebsite;
-            }
-                return null;
+            var url = "/api/user/" + developerId + "/website";
+            var newWebsite = {
+                _id: (new Date()).getTime() + "",
+                name: name,
+                description: description,
+                developerId: developerId
+            };
+            return $http.post(url, newWebsite);
         }
         
         function updateWebsite(updatedWebsite) {
-            for (var i in websites) {
-                if (websites[i]._id === updatedWebsite._id) {
-                    websites[i] = updatedWebsite;
-                    return true;
-                }
-            }
-            return false;
+            var url = "/api/website/" + updatedWebsite._id;
+            return $http.put(url, updatedWebsite);
             
         }
         
-        function deleteWebsite(wid) {
-            for (var i in websites) {
-                if (websites[i]._id === wid) {
-                    websites.splice(i, 1) ;
-                    return true;
-                }
-            }
-            return false;
+        function deleteWebsite(websiteId) {
+            var url = "/api/website/" + websiteId;
+            return $http.delete(url);
         }
         
         return api;

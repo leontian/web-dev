@@ -49,7 +49,7 @@ module.exports = function (app) {
     function updateWebsite(req, res) {
         var website = req.body;
         for (var i in websites) {
-            if (websites[i]._id === user._id) {
+            if (websites[i]._id === website._id) {
                 websites[i] = website;
                 res.send(200);
                 return;

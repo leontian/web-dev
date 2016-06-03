@@ -47,7 +47,7 @@ module.exports = function (app) {
     function updatePage(req, res) {
         var page = req.body;
         for (var i in pages) {
-            if (pages[i]._id === user._id) {
+            if (pages[i]._id === page._id) {
                 pages[i] = page;
                 res.send(200);
                 return;

@@ -12,8 +12,8 @@
         vm.login = function(username, password) {
             UserService
                 .findUserByUsernameAndPassword(username, password)
-                .then(function (res) {
-                    var user = res.data;
+                .then(function (response) {
+                    var user = response.data;
 
                     if (user._id) {
                         $location.url("/user/" + user._id);

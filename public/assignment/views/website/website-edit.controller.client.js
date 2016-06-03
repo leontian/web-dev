@@ -10,26 +10,47 @@
         
         vm.uid = $routeParams['uid'];
         vm.wid = $routeParams['wid'];
-        vm.website = WebsiteService.findWebsiteById(vm.wid);
         
-        function deleteWebsite(wid) {
-            var result = WebsiteService.deleteWebsite(wid);
-            if (result) {
-                $location.url("/user/" + vm.uid + "/website");
-            } else {
-                vm.error = "Unable to delete website."
-            }
+        function init() {
+            WebsiteService
+                .findWebsiteById(vm.wid)
+                .then(
+                    function (response) {
+                        vm.website = response.data;
+                    },
+                    function (error) {
+                        vm.error = "Website not found.";
+                    });
+        }
+        
+        init();
+        
+        function deleteWebsite(websiteId) {
+           WebsiteService
+               .deleteWebsite(websiteId)
+               .then(
+                   function (response) {
+                       $location.url("/user/" + vm.uid + "/website");
+                   },
+                   function (error) {
+                       vm.error = "Unable to delete website."
+                   });
         }
         
         function updateWebsite() {
-            var result = WebsiteService.updateWebsite(vm.website);
-            if (result) {
-                $location.url("/user/" + vm.uid + "/website");
+            if (vm.website.name) {
+                WebsiteService
+                    .updateWebsite(vm.website)
+                    .then(
+                        function (response) {
+                            vm.success = "Website updated."
+                        },
+                        function (error) {
+                            vm.error = "Unable to update website."
+                        });
             } else {
-                vm.error = "Unable to update website."
+                vm.error = "Website name cannot be empty";
             }
-            
-            
         }
     }
 })();

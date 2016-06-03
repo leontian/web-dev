@@ -21,7 +21,6 @@
                         if (user) {
                             $location.url("/user/" + user._id)
                         }
-                        
                     })
                 
             } else {

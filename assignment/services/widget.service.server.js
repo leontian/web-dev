@@ -54,7 +54,7 @@ module.exports = function (app) {
     function updateWidget(req, res) {
         var widget = req.body;
         for (var i in widgets) {
-            if (widgets[i]._id === user._id) {
+            if (widgets[i]._id === page._id) {
                 widgets[i] = widget;
                 res.send(200);
                 return;
