@@ -31,7 +31,14 @@
         init();
 
         function updateUser(newUser) {
-            UserService.updateUser(id, newUser);
+            UserService
+                .updateUser(id, newUser)
+                .then(function (response) {
+                        vm.success = "User Updated.";
+                    }, function (error) {
+                        vm.error = "Unable to update user.";
+                    }
+                );
         }
         
         function deleteUser() {
@@ -39,7 +46,11 @@
                 .deleteUser(id)
                 .then(function (response) {
                     $location.url("/login");
-                });
+                },
+                    function (error) {
+                        vm.error = "Unable to delete user";
+                    }
+                );
         }
     }
 })();

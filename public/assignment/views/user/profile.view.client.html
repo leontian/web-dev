@@ -16,6 +16,12 @@
 
 
 <div class="container">
+    <div ng-if="model.success" class="alert alert-success">
+        {{model.success}}
+    </div>
+    <div ng-if="model.error" class="alert alert-danger">
+        {{model.error}}
+    </div>
     <form>
         <div class="form-group">
             <label for="username">Username</label>

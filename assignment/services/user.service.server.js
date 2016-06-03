@@ -74,13 +74,11 @@ module.exports = function (app) {
         for (var i in users) {
             if (users[i]._id === user._id) {
                 users[i] = user;
-                res.send(user);
+                res.send(200);
                 return;
             }
         }
-        res.send({});
-        
-        
+        res.send(400);
     }
     
     function deleteUser(req, res) {
