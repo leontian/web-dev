@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
 
+var morgan = require('morgan');
+app.use(morgan('dev')); // log every request to the console
+
+
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -4,6 +4,7 @@
 module.exports = function (app) {
     
     require("./services/user.service.server")(app);
+    require("./services/website.service.server")(app);
     
     app.get("/say/:something", function (req, res) {
         console.log("hello from new module" + req.params['something']);
