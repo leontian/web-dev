@@ -12,11 +12,15 @@
         vm.getSafeUrl = getSafeUrl;
 
         function init() {
-            var widgets = WidgetService.findWidgetsByPageId(vm.pid);
-            if (widgets.length) {
-                vm.widgets = widgets;
-                console.log(widgets);
-            }
+            WidgetService
+                .findWidgetsByPageId(vm.pid)
+                .then(
+                    function (response) {
+                        vm.widgets = response.data;
+                    },
+                    function (error) {
+                        vm.error = "Unable to find widgets";
+                    });
         }
         init();
 

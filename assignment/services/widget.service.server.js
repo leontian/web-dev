@@ -15,8 +15,8 @@ module.exports = function (app) {
         { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
     ];
 
-    app.post("/api/website/:websiteId/widget", createWidget);
-    app.get("/api/website/:websiteId/widget", findAllWidgetsForPage);
+    app.post("/api/page/:pageId/widget", createWidget);
+    app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
     // TODO: make sure widgetId unique in db
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
@@ -29,10 +29,10 @@ module.exports = function (app) {
     }
 
     function findAllWidgetsForPage(req, res) {
-        var websiteId = req.params.websiteId;
+        var pageId = req.params.pageId;
         var result = [];
         for (var i in widgets) {
-            if (widgets[i].websiteId === websiteId) {
+            if (widgets[i].pageId === pageId) {
                 result.push(widgets[i]);
             }
         }
@@ -54,7 +54,7 @@ module.exports = function (app) {
     function updateWidget(req, res) {
         var widget = req.body;
         for (var i in widgets) {
-            if (widgets[i]._id === page._id) {
+            if (widgets[i]._id === widget._id) {
                 widgets[i] = widget;
                 res.send(200);
                 return;
