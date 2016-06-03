@@ -19,7 +19,10 @@
 
 
 <div class="container">
-    <div ng-show="model.error" class="alert alert-danger">
+    <div ng-if="model.success" class="alert alert-success">
+        {{model.success}}
+    </div>
+    <div ng-if="model.error" class="alert alert-danger">
         {{model.error}}
     </div>
     <form>

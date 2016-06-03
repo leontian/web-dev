@@ -19,6 +19,7 @@ module.exports = function (app) {
     
     function createWebsite(req, res) {
         var website = req.body;
+        website._id = (new Date()).getTime() + "";
         websites.push(website);
         res.send(200);
     }

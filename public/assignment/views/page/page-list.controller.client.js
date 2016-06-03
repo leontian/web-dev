@@ -9,7 +9,16 @@
         vm.uid = $routeParams['uid'];
         
         function init() {
-            vm.pages = PageService.findPagesByWebsiteId(vm.wid);
+            PageService
+                .findPagesByWebsiteId(vm.wid)
+                .then(
+                    function (response) {
+                        vm.pages = response.data;
+                    },
+                    function (error) {
+                        vm.error = "Unnable to find pages";
+                    }
+                );
         }
         init();
     }

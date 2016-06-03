@@ -17,6 +17,7 @@ module.exports = function (app) {
 
     function createPage(req, res) {
         var page = req.body;
+        page._id = (new Date()).getTime() + "";
         pages.push(page);
         res.send(200);
     }
@@ -45,9 +46,10 @@ module.exports = function (app) {
     }
 
     function updatePage(req, res) {
+        var pageId = req.params.pageId;
         var page = req.body;
         for (var i in pages) {
-            if (pages[i]._id === page._id) {
+            if (pages[i]._id === pageId) {
                 pages[i] = page;
                 res.send(200);
                 return;

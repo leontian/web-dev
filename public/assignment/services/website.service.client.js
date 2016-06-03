@@ -31,7 +31,6 @@
         function createWebsite(developerId, name, description) {
             var url = "/api/user/" + developerId + "/website";
             var newWebsite = {
-                _id: (new Date()).getTime() + "",
                 name: name,
                 description: description,
                 developerId: developerId
