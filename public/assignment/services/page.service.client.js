@@ -5,7 +5,7 @@
 
 
 
-    function PageService() {
+    function PageService($http) {
         var api = {
             findPagesByWebsiteId: findPagesByWebsiteId,
             findPageById: findPageById,
@@ -14,54 +14,30 @@
             deletePage: deletePage
         };
 
-        function findPagesByWebsiteId(wid) {
-            var resultSet = [];
-            for (var i in pages) {
-                if (pages[i].websiteId === wid) {
-                    resultSet.push(pages[i]);
-                }
-            }
-            return resultSet;
+        function findPagesByWebsiteId(websiteId) {
+            var url = "/api/website" + websiteId + "/page";
+            return $http.get(url);
         }
 
-        function findPageById(pid) {
-            for (var i in pages) {
-                if (pages[i]._id === pid) {
-                    return pages[i];
-                }
-            }
-            return null;
+        function findPageById(pageId) {
+            var url = "/api/page/" + pageId;
+            return $http.get(url);
         }
 
-        function createPage(wid, page){
-            if (page.name) {
-                page.websiteId = wid;
-                pages.push(page);
-                return page;
-            }
-            return null;
+        function createPage(websiteId, page){
+            var url = "/api/website" + websiteId + "/page";
+            return $http.post(url, page);
         }
 
         function updatePage(updatedPage) {
-            for (var i in pages) {
-                if (pages[i]._id === updatedPage._id) {
-                    pages[i] = updatedPage;
-                    return true;
-                }
-            }
-            return false;
+            var url = "/api/page/" + updatedPage._id;
+            return $http.put(url, updatedPage);
         }
 
-        function deletePage(pid) {
-            for (var i in pages) {
-                if (pages[i]._id === pid) {
-                    pages.splice(i, 1) ;
-                    return true;
-                }
-            }
-            return false;
+        function deletePage(pageId) {
+            var url = "/api/page/" + pageId;
+            return $http.delete(url);
         }
-
         return api;
     }
 
