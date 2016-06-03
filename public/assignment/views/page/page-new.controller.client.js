@@ -15,7 +15,6 @@
                 name: name
             };
             if (name) {
-
                 PageService
                     .createPage(vm.wid, newPage) 
                     .then(
