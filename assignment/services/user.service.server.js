@@ -70,10 +70,28 @@ module.exports = function (app) {
     }
     
     function updateUser(req, res) {
+        var user = req.body;
+        for (var i in users) {
+            if (users[i]._id === user._id) {
+                users[i] = user;
+                res.send(user);
+                return;
+            }
+        }
+        res.send({});
+        
         
     }
     
     function deleteUser(req, res) {
-        
+        var id = req.params.userId;
+        for (var i in users) {
+            if (users[i]._id === id) {
+                users.splice(i, 1);
+                res.send(200);
+                return;
+            }
+        }
+        res.send(400);
     }
 };

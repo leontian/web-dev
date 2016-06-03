@@ -15,7 +15,7 @@
                 .then(function (res) {
                     var user = res.data;
 
-                    if (user) {
+                    if (user._id) {
                         $location.url("/user/" + user._id);
                     } else {
                         vm.error = "User not found.";

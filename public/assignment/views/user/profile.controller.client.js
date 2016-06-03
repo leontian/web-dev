@@ -8,10 +8,11 @@
         .controller("ProfileController", ProfileController);
 
 
-    function ProfileController($routeParams, UserService) {
+    function ProfileController($location, $routeParams, UserService) {
         var vm = this;
 
         vm.updateUser = updateUser;
+        vm.deleteUser = deleteUser;
         
 
 
@@ -32,8 +33,13 @@
         function updateUser(newUser) {
             UserService.updateUser(id, newUser);
         }
-
-
+        
+        function deleteUser() {
+            UserService
+                .deleteUser(id)
+                .then(function (response) {
+                    $location.url("/login");
+                });
+        }
     }
-
 })();
