@@ -1,0 +1,20 @@
+input.form-control {
+    margin-bottom: 5px;
+}
+
+body {
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+p.navbar-text.pull-right {
+    margin-right: 15px;
+}
+.jga-widget-tool {
+    background-color: white;
+    position: absolute;
+    border-bottom-left-radius: 2px;
+    right: 15px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+}
