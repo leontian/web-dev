@@ -25,7 +25,7 @@
                         scope.model.widgets.splice(end, 0, temp);
                         scope.$apply();
                         var pageId = scope.model.pageId;
-                        $http.put("/page/" + pageId + "/widget?initial=" + start + "&final=" + end);
+                        $http.put("/api/page/" + pageId + "/widget?initial=" + start + "&final=" + end);
                     }
                 }
             });

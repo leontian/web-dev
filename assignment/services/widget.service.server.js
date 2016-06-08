@@ -17,15 +17,26 @@ module.exports = function (app) {
 
     app.post("/api/page/:pageId/widget", createWidget);
     app.get("/api/page/:pageId/widget", findAllWidgetsForPage);
+    app.put("/api/page/:pageId/widget", rearrangeWidgets);
     // TODO: make sure widgetId unique in db
     app.get("/api/widget/:widgetId", findWidgetById);
     app.put("/api/widget/:widgetId", updateWidget);
     app.delete("/api/widget/:widgetId", deleteWidget);
+    
+    function rearrangeWidgets(req, res) {
+        // TODO: not exactly correct, need to get pageId involved
+        var start = req.query.initial;
+        var end = req.query.final;
+        var temp = widgets[start];
+        widgets.splice(start, 1);
+        widgets.splice(end, 0, temp);
+        res.sendStatus(200);
+    }
 
     function createWidget(req, res) {
         var widget = req.body;
         widgets.push(widget);
-        res.send(200);
+        res.sendStatus(200);
     }
 
     function findAllWidgetsForPage(req, res) {
@@ -56,11 +67,11 @@ module.exports = function (app) {
         for (var i in widgets) {
             if (widgets[i]._id === widget._id) {
                 widgets[i] = widget;
-                res.send(200);
+                res.sendStatus(200);
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
 
     }
 
@@ -69,11 +80,11 @@ module.exports = function (app) {
         for (var i in widgets) {
             if (widgets[i]._id === id) {
                 widgets.splice(i, 1);
-                res.send(200);
+                res.sendStatus(200);
                 return;
             }
         }
-        res.send(400);
+        res.sendStatus(400);
     }
 
 
