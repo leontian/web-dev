@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
 
-var morgan = require('morgan');
-app.use(morgan('dev')); // log every request to the console
+//var morgan = require('morgan');
+//app.use(morgan('dev')); // log every request to the console
 
 
 
