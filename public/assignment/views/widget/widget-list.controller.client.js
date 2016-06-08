@@ -5,15 +5,15 @@
     
     function WidgetListController($sce, $routeParams, $location, WidgetService) {
         var vm = this;
-        vm.pid = $routeParams.pid;
-        vm.uid = $routeParams.uid;
-        vm.wid = $routeParams.wid;
+        vm.pageId = $routeParams.pid;
+        vm.userId = $routeParams.uid;
+        vm.websiteId = $routeParams.wid;
         vm.getSafeHtml = getSafeHtml;
         vm.getSafeUrl = getSafeUrl;
 
         function init() {
             WidgetService
-                .findWidgetsByPageId(vm.pid)
+                .findWidgetsByPageId(vm.pageId)
                 .then(
                     function (response) {
                         vm.widgets = response.data;
@@ -21,6 +21,7 @@
                     function (error) {
                         vm.error = "Unable to find widgets";
                     });
+            //$(".container").sortable({axis: "y"});
         }
         init();
 
