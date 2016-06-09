@@ -4,7 +4,17 @@
 
 module.exports = function () {
     var mongoose = require('mongoose');
-    mongoose.connect('mongodb://localhost/webappmaker');
+    var connection_string;
+    if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD){
+        connection_string = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+            process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+            process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+            process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+            process.env.OPENSHIFT_APP_NAME;
+    } else {
+        connection_string = 'mongodb://localhost/webappmaker';
+    }
+    mongoose.connect(connection_string);
     
     var models = {
         userModel: require('./user/user.model.server.js')(),
