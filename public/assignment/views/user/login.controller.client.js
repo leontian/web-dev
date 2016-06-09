@@ -15,10 +15,10 @@
                 .then(function (response) {
                     var user = response.data;
 
-                    if (user._id) {
+                    if (user) {
                         $location.url("/user/" + user._id);
                     } else {
-                        vm.error = "User not found.";
+                        vm.error = "User not found or wrong password.";
                     }
             });
         }

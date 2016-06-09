@@ -6,11 +6,46 @@ module.exports = function () {
     var UserSchema = require("./user.schema.server")();
     var User = mongoose.model("User", UserSchema);
     var api = {
-        createUser: createUser
+        createUser: createUser,
+        updateUser: updateUser,
+        deleteUser: deleteUser,
+        findUserById: findUserById,
+        findUserByName: findUserByName,
+        findUserByCredentials: findUserByCredentials,
+        findAllUsers: findAllUsers
     };
     
-    function createUser(user) {
-        User.create(user);
-    }
     return api;
+    
+    function createUser(user) {
+        return User.create(user);
+    }
+    
+    function findAllUsers() {
+        return User.find();
+    }
+    
+    function updateUser(user) {
+        return User.update({_id: user._id}, user);
+        
+    }
+    
+    function deleteUser(userId) {
+        return User.findByIdAndRemove(userId);
+        
+    }
+    
+    function findUserById(userId) {
+        return User.findById(userId);
+    }
+    
+    function findUserByName(username) {
+        return User.findOne({username: username});
+        
+    }
+    
+    function findUserByCredentials(username, password) {
+        return User.findOne({username: username, password: password});
+    }
+    
 };
