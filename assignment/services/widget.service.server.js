@@ -1,7 +1,7 @@
 /**
  * Created by leon on 6/2/16.
  */
-module.exports = function (app) {
+module.exports = function (app, models) {
 
     var widgetModel = models.widgetModel;
     

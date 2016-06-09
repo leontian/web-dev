@@ -3,7 +3,7 @@
  */
 module.exports = function () {
     var mongoose = require('mongoose');
-    var WidgetSchema= require('./widget.model.server')();
+    var WidgetSchema= require('./widget.schema.server')();
     var Widget = mongoose.model('Widget', WidgetSchema)
 
     var api = {
@@ -40,7 +40,4 @@ module.exports = function () {
         return Widget.findById(widgetId);
         
     }
-    
-
-
-}();
+};
