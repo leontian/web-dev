@@ -6,6 +6,8 @@ module.exports = function () {
 
     var WidgetSchema = mongoose.Schema({
         _page: {type:mongoose.Schema.ObjectId, ref: "Page"},
+        name: String,
+        type: String,
         size: String,
         text: String,
         width: String,

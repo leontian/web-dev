@@ -2,13 +2,13 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <p class="navbar-brand">
-                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 Widgets
             </p>
             <p class="navbar-text pull-right">
-                <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget/new" class="navbar-link">
+                <a href="#/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/new" class="navbar-link">
           <span class="glyphicon glyphicon-plus">
           </span>
                 </a>
@@ -19,7 +19,7 @@
 
 
 <div class="container" jga-sortable>
-    {{model.widgets}}
+    {{model.widgets}} <!--test-->
     <div ng-repeat="widget in model.widgets">
         <div class="jga-widget">
             <div class="jga-widget-tool">
@@ -28,7 +28,7 @@
                 </a>
                 <span class="glyphicon glyphicon-align-justify"></span>
             </div>
-            <div ng-switch="widget.widgetType">
+            <div ng-switch="widget.type">
                 <div ng-switch-when="HTML">
                     <div ng-bind-html="model.getSafeHtml(widget)"></div>
                 </div>
@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row navbar-text">
                 <div class="col-xs-2 text-center pull-right">
-                    <a href="#/user/{{model.uid}}">
+                    <a href="#/user/{{model.userId}}">
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                 </div>

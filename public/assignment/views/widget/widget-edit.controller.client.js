@@ -31,6 +31,7 @@
                 .then(
                     function (response) {
                         vm.success = "Widget updated";
+                        $location.url("/user/" + vm.uid + "/website/" + vm.wid + "/page/" + vm.pid + "/widget");
                     });
         }
         

@@ -5,10 +5,10 @@
                 <a href="#/user/{{model.uid}}/website/{{model.wid}}/page/{{model.pid}}/widget">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
-                New Website
+                Edit Header
             </p>
             <p class="navbar-text pull-right">
-                <a href="widget-list.view.client.html" class="navbar-link">
+                <a ng-click="model.updateWidget()" class="navbar-link">
           <span class="glyphicon glyphicon-ok">
           </span>
                 </a>
@@ -22,28 +22,29 @@
     <form>
         <div class="form-group">
             <label for="widget-name">Name</label>
-            <input type="text"
+            <input ng-model="model.widget.name" type="text"
                    class="form-control"
                    id="widget-name"
                    placeholder="Blogger">
         </div>
         <div class="form-group">
             <label for="widget-text">Text</label>
-            <input type="text"
+            <input ng-model="model.widget.text" type="text"
                    class="form-control"
                    id="widget-text"
                    value="US Senate" >
         </div>
         <div class="form-group">
             <label for="widget-size">Size</label>
-            <input type="text"
+            <input ng-model="model.widget.size" type="text"
                    class="form-control"
                    id="widget-size"
+                   required
                    value="3" >
         </div>
     </form>
     <a class="btn btn-danger btn-block"
-       href="widget-list.view.client.html">Delete</a>
+        ng-click="model.deleteWidget()">Delete</a>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container">
