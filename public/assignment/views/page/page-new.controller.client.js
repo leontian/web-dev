@@ -9,10 +9,10 @@
         vm.uid = $routeParams['uid'];
         vm.createPage = createPage;
         
-        function createPage(name) {
+        function createPage(name, description) {
             var newPage = {
-                websiteId: vm.wid,
-                name: name
+                name: name,
+                description: description
             };
             if (name) {
                 PageService
