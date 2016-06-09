@@ -12,11 +12,11 @@
         vm.getSafeUrl = getSafeUrl;
 
         function init() {
-            PageService
-                .findPageById()
+            WidgetService
+                .findWidgetsByPageId(vm.pageId)
                 .then(
                     function (response) {
-                        vm.widgets = response.data.widgets;
+                        vm.widgets = response.data;
                     },
                     function (error) {
                         vm.error = "Unable to find widgets";
