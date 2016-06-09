@@ -7,7 +7,8 @@ module.exports = function () {
     mongoose.connect('mongodb://localhost/webappmaker');
     
     var models = {
-        userModel: require('./user/user.model.server.js')()
+        userModel: require('./user/user.model.server.js')(),
+        websiteModel: require('./website/website.model.server')()
     };
     return models;
 };
