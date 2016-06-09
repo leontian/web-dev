@@ -21,19 +21,21 @@ module.exports = function () {
         return Website.create(website);
     }
 
-    function findWebsitesForUser() {
+    function findWebsitesForUser(userId) {
+        return Website.find({_user: userId});
 
     }
 
-    function findWebsiteById() {
-
+    function findWebsiteById(websiteId) {
+        return Website.findById(websiteId);
     }
 
-    function updateWebsite() {
-
+    function updateWebsite(website) {
+        return Website.update({_id: website._id}, website);
     }
 
-    function deleteWebsite() {
+    function deleteWebsite(websiteId) {
+        return Website.findOneAndRemove({_id: websiteId});
 
     }
     

@@ -33,7 +33,7 @@
             var newWebsite = {
                 name: name,
                 description: description,
-                developerId: developerId
+                _user: developerId
             };
             return $http.post(url, newWebsite);
         }
