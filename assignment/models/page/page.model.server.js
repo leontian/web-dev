@@ -38,4 +38,8 @@ module.exports = function () {
 
     }
 
+    // function reorderWidgets(pageId, start, end) {
+    //
+    // }
+
 };
