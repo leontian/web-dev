@@ -26,7 +26,9 @@ module.exports = function () {
     }
     
     function updateUser(user) {
-        return User.update({_id: user._id}, user);
+        var userId = user._id;
+        delete user._id;
+        return User.update({_id: userId}, user);
         
     }
     

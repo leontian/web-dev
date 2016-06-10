@@ -31,7 +31,9 @@ module.exports = function () {
     }
 
     function updateWebsite(website) {
-        return Website.update({_id: website._id}, website);
+        var websiteId = website._id;
+        delete website._id;
+        return Website.update({_id: websiteId}, website);
     }
 
     function deleteWebsite(websiteId) {
