@@ -23,7 +23,9 @@ module.exports = function () {
     }
     
     function updateWidget(widget) {
-        return Widget.update({_id: widget._id}, widget);
+        var widgetId = widget._id;
+        delete widget._id;
+        return Widget.update({_id: widgetId}, widget);
     }
     
     function deleteWidget(widgetId) {
